@@ -56,10 +56,10 @@ cover/
 *.pot
 
 # Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
+GetItFastBackend/*.log
+GetItFastBackend\GetItFastBackend\settings.py
+GetItFastBackend/db.sqlite3
+GetItFastBackend/db.sqlite3-journal
 
 # Flask stuff:
 instance/
@@ -160,3 +160,30 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+
+###########
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+GetItFastFrontend/node_modules
+GetItFastFrontend/dist
+GetItFastFrontend/dist-ssr
+GetItFastFrontend/*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+GetItFastFrontend/.DS_Store
+GetItFastFrontend/*.suo
+GetItFastFrontend/*.ntvs*
+GetItFastFrontend/*.njsproj
+GetItFastFrontend/*.sln
+GetItFastFrontend/*.sw?
