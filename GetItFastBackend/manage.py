@@ -1,23 +1,10 @@
 #!/usr/bin/env python
+"""Django's command-line utility for administrative tasks."""
 import os
 import sys
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
+
 import uvicorn
-
-app = FastAPI()
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_methods=["*"],
-    allow_headers=["*"],
-    allow_credentials=True,
-    allow_origins=["http://localhost:5173"]
-)
-
-@app.get('/get_data')
-async def get_data():
-    return {'body': 'maculado'}
+from polls.apps import app
 
 def main():
     """Run administrative tasks."""
@@ -32,5 +19,7 @@ def main():
         ) from exc
     execute_from_command_line(sys.argv)
 
+
 if __name__ == '__main__':
-    uvicorn.run(app, port=7777)
+    main()
+    uvicorn.run(app,  port=7777)

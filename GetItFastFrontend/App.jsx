@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import './App.css'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import './App.css';
+import { Home } from './src/pages/home/index';
+import { Sobre } from './src/pages/sobre/index';
 
 function App() {
 
@@ -18,12 +21,18 @@ function App() {
       })
   }, [])
 
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Home />
+    },
+    {
+      path: "/sobre",
+      element: <Sobre />
+    }
+  ])
   return (
-    <>
-      <div>
-        <h1>Oiii, {presentation}</h1>
-      </div>
-    </>
+    <RouterProvider router={router} />
   )
 }
 
