@@ -1,5 +1,10 @@
 import { useEffect, useState } from 'react';
+import { Card, Divider, Layout } from 'antd';
 import axios from 'axios';
+
+import "./style.css"
+
+const { Content } = Layout;
 
 export const Home = () => {
 
@@ -18,10 +23,30 @@ export const Home = () => {
     }, [])
 
     return (
-        <>
-            <div>
-                <h1>Oiii, {presentation}</h1>
+        <Content>
+            <div className='container'>
+                <div className='intrudution'>
+                    <h1>Bem-vindo(a) GetItFast!</h1>
+                    <p>Somos uma empresa especializada em venda de alimentos com a data de validade próxima. Venha conhecer um pouco mais de nossa história!</p>
+                </div>
+                <div className='information'>
+                    <Card className='card'>
+                        <h1>O que fazemos?</h1>
+                        <Divider />
+                        <p>Recebos anúncios de vendedores com produtos próximos a data de validade e disponibilizamos para os nossos clientes com até 90% de desconto.</p>
+                    </Card>
+                    <Card className='card'>
+                        <h1>Qual a finaliade?</h1>
+                        <Divider />
+                        <p>Promover produtor de qualidade apropriados para o consumo rápido, além da diminuição de itens descartados por não conseguirem ser vendidos dentro de sua validade.</p>
+                    </Card>
+                    <Card className='card'>
+                        <h1>Há segurança?</h1>
+                        <Divider />
+                        <p>Os produtos são <b>sempre</b> vendidos antes de sua data de validade informada pelo fabricante, desta forma, não há nenhum tipo de risco para o seu consumo.</p>
+                    </Card>
+                </div>
             </div>
-        </>
+        </Content>
     )
 }

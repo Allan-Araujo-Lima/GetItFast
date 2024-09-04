@@ -10,7 +10,7 @@ import { Cadastro } from './pages/cadastro'
 import { Ajuda } from './pages/ajuda'
 
 import "antd/dist/reset.css";
-import './index.css'
+import './globals/style.css'
 
 const router = createBrowserRouter([
   {
