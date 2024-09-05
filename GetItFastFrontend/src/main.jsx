@@ -8,6 +8,8 @@ import { Sobre } from './pages/sobre'
 import { Loja } from './pages/loja'
 import { Cadastro } from './pages/cadastro'
 import { Ajuda } from './pages/ajuda'
+import { Login } from './pages/login'
+import { UserRegister } from './pages/register'
 
 import "antd/dist/reset.css";
 import './globals/style.css'
@@ -36,6 +38,14 @@ const router = createBrowserRouter([
       {
         path: "/ajuda",
         element: <Ajuda />
+      },
+      {
+        path: "/login",
+        element: <Login />
+      },
+      {
+        path: "/registro",
+        element: <UserRegister />
       }
     ]
   }
