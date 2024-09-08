@@ -1,10 +1,20 @@
+import { AuthModule } from './modules/auth/auth.module';
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import * as Joi from 'joi';
+import { ConfigModule } from '@nestjs/config';
+import { DatabaseModule } from './config/database.module';
+import { ProfilesDataModule } from './modules/profiles_data/profiles_data.module';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    AuthModule,
+    DatabaseModule,
+    ProfilesDataModule,
+    ConfigModule.forRoot({
+      validationSchema: Joi.object({
+        FRONTEND_URL: Joi.string(),
+      }),
+    }),
+  ],
 })
-export class AppModule {}
+export class AppModule { }

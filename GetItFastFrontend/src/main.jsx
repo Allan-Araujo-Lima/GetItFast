@@ -1,6 +1,8 @@
+import 'react-toastify/dist/ReactToastify.css';
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify';
 
 import { LayoutExp } from './layout'
 import { Home } from './pages/home'
@@ -53,6 +55,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <ToastContainer />
     <RouterProvider router={router} />
   </React.StrictMode>,
 );

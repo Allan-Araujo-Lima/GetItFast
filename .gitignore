@@ -55,11 +55,9 @@ cover/
 *.mo
 *.pot
 
-# Django stuff:
-GetItFastBackend/*.log
-GetItFastBackend\GetItFastBackend\settings.py
-GetItFastBackend/db.sqlite3
-GetItFastBackend/db.sqlite3-journal
+# Node stuff:
+get-it-fast-backend/.env
+get-it-fast-backend/node_modules
 
 # Flask stuff:
 instance/
