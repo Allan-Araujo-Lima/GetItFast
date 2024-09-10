@@ -3,6 +3,7 @@ import { useAuth } from '../../hooks/useAuth';
 
 import "./style.css";
 import { toast } from 'react-toastify';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const { Content } = Layout;
 
@@ -11,13 +12,19 @@ export const Login = () => {
         onSignIn,
     } = useAuth()
 
+    const navigate = useNavigate()
     const [form] = Form.useForm()
 
     const submit = async (values) => {
-        await onSignIn({
-            email: values.email,
-            password: values.password
-        })
+        try {
+            await onSignIn({
+                email: values.email,
+                password: values.password
+            })
+            navigate("/")
+        } catch (error) {
+            toast.error("Erro inesperado.")
+        }
     }
     return (
         <Content>
@@ -28,7 +35,7 @@ export const Login = () => {
                             <Form.Item label="E-mail" name="email">
                                 <Input />
                             </Form.Item>
-                            <Form.Item label="Senha" name="senha">
+                            <Form.Item label="Senha" name="password">
                                 <Input.Password />
                             </Form.Item>
                             <Space>

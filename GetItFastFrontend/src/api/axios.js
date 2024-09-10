@@ -10,7 +10,7 @@ const api = axios.create({
 
 api.interceptors.request.use(
     async function (config) {
-        if (config.url !== "/auth/signin") {
+        if (config.url !== "/auth/signin" && config.url !== "/users/signup") {
             const token_local = await decodeTokenAsync();
 
             if (typeof token_local === "string" && !config.headers["authorization"]) {

@@ -4,11 +4,5 @@ export class SignInDto {
   @IsEmail()
   @IsNotEmpty()
   email: string;
-  @IsStrongPassword({
-    minLength: 8,
-    minNumbers: 1,
-    minLowercase: 1,
-    minUppercase: 1,
-  })
   password: string;
 }

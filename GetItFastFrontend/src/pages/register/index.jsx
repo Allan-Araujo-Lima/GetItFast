@@ -5,19 +5,30 @@ const { Content } = Layout;
 import "./style.css"
 import api from "../../api/axios";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 
 export const UserRegister = () => {
-
+    const navigate = useNavigate();
     const [form] = Form.useForm();
 
     const submit = async (values) => {
-        await api.post('/users/signup', {
-            first_name: values.first_name,
-            last_name: values.last_name,
-            email: values.email,
-            password: values.password
-        })
+        if (values.password !== values.password_confirmation) {
+            return toast.warning("As senhas não conferem.")
+        }
+        try {
+            await api.post('/users/signup', {
+                first_name: values.first_name,
+                last_name: values.last_name,
+                email: values.email,
+                password: values.password
+            })
+            toast.success("Usuário criado com sucesso.")
+            navigate("/login")
+        } catch (error) {
+            console.log(error)
+            toast.error("Erro inesperado, tente novamente.")
+        }
     }
 
     return (
