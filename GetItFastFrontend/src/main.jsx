@@ -12,50 +12,55 @@ import { Cadastro } from './pages/cadastro'
 import { Ajuda } from './pages/ajuda'
 import { Login } from './pages/login'
 import { UserRegister } from './pages/register'
+import { AuthProvider } from './providers/auth'
+import { ProtectedPages } from './components/ProtectedPages';
 
 import "antd/dist/reset.css";
 import './globals/style.css'
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <LayoutExp />,
+    path: "painel",
+    element: <ProtectedPages element={<LayoutExp />} validadePage={true} />,
+    // element: <LayoutExp />,
     children: [
       {
-        path: "/",
-        element: <Home />
-      },
-      {
-        path: "/sobre",
-        element: <Sobre />
-      },
-      {
-        path: "/loja",
+        path: "loja",
         element: <Loja />
       },
       {
-        path: "/cadastro",
+        path: "cadastro",
         element: <Cadastro />
       },
-      {
-        path: "/ajuda",
-        element: <Ajuda />
-      },
-      {
-        path: "/login",
-        element: <Login />
-      },
-      {
-        path: "/registro",
-        element: <UserRegister />
-      }
     ]
+  },
+  {
+    path: "/",
+    element: <Home />
+  },
+  {
+    path: "/sobre",
+    element: <Sobre />
+  },
+  {
+    path: "/ajuda",
+    element: <Ajuda />
+  },
+  {
+    path: "/login",
+    element: <Login />
+  },
+  {
+    path: "/registro",
+    element: <UserRegister />
   }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ToastContainer />
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 );

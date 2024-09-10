@@ -1,7 +1,5 @@
 import { Layout, Input, Form, Card, Space, Button } from "antd";
 
-import axios from "axios";
-
 const { Content } = Layout;
 
 import "./style.css"
@@ -14,21 +12,12 @@ export const UserRegister = () => {
     const [form] = Form.useForm();
 
     const submit = async (values) => {
-        console.log(values)
-        if (values.password !== values.password_confirmation) {
-            return toast.warning("As senhas não conferem.")
-        }
-        try {
-            await api.post('/users/signup', {
-                first_name: values.first_name,
-                last_name: values.last_name,
-                email: values.email,
-                password: values.password
-            })
-            toast.success("Usuário criado com sucesso.")
-        } catch (error) {
-            toast.error("Erro inesperado, tente novamente.")
-        }
+        await api.post('/users/signup', {
+            first_name: values.first_name,
+            last_name: values.last_name,
+            email: values.email,
+            password: values.password
+        })
     }
 
     return (
