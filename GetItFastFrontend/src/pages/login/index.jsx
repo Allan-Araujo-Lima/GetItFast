@@ -21,7 +21,7 @@ export const Login = () => {
                 email: values.email,
                 password: values.password
             })
-            navigate("/")
+            navigate("/painel")
         } catch (error) {
             toast.error("Erro inesperado.")
         }

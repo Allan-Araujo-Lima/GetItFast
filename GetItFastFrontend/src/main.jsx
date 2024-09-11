@@ -16,16 +16,15 @@ import { AuthProvider } from './providers/auth'
 import { ProtectedPages } from './components/ProtectedPages';
 
 import "antd/dist/reset.css";
-import './globals/style.css'
+import './index.css'
 
 const router = createBrowserRouter([
   {
     path: "painel",
-    element: <ProtectedPages element={<LayoutExp />} validadePage={true} />,
-    // element: <LayoutExp />,
+    element: <ProtectedPages element={LayoutExp} validadePage={true} />,
     children: [
       {
-        path: "loja",
+        path: "",
         element: <Loja />
       },
       {

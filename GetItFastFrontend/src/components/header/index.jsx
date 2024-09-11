@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom';
 
 import LogoMarca from "../../assets/LogoMarca.svg";
 
+import { MENU_LINKS } from './menu-links';
 import "./style.css"
 
 const { Header } = Layout
 
-const items = ["Loja", "Cadastro", "Ajuda", "Sobre"].map((key) => ({
-    key,
-    label: <Link className='link' to={`/${key.toLowerCase()}`}>{key}</Link>
+const items = MENU_LINKS.map((item) => ({
+    item,
+    label: <Link className='link' to={`${item.path}`}>{item.label}</Link>
 }))
 
 export const HeaderExp = () => {

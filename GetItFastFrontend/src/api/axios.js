@@ -29,7 +29,7 @@ api.interceptors.request.use(
 
 axios.interceptors.response.use(
     function (response) {
-        const token_local = import.meta.env.REACT_APP_LOCAL_TOKEN;
+        const token_local = import.meta.env.VITE_LOCAL_TOKEN;
         if (
             response.status === 401 &&
             response.data.message &&
