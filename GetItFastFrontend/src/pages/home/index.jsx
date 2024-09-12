@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
-import { Card, Divider, Layout } from 'antd';
+import { Divider, Layout } from 'antd';
 import axios from 'axios';
 
+import { Card, CardContent, CardHeader, CardTitle } from "../../components/ui/card"
+import { cn } from "../../lib/utils"
 import "./style.css"
 
 const { Content } = Layout;
@@ -31,19 +33,28 @@ export const Home = () => {
                 </div>
                 <div className='information'>
                     <Card className='card'>
-                        <h1>O que fazemos?</h1>
-                        <Divider />
-                        <p>Recebos anúncios de vendedores com produtos próximos a data de validade e disponibilizamos para os nossos clientes com até 90% de desconto.</p>
+                        <CardHeader>
+                            <CardTitle>O que fazemos?</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p>Recebos anúncios de vendedores com produtos próximos a data de validade e disponibilizamos para os nossos clientes com até 90% de desconto.</p>
+                        </CardContent>
                     </Card>
                     <Card className='card'>
-                        <h1>Qual a finaliade?</h1>
-                        <Divider />
-                        <p>Promover produtor de qualidade apropriados para o consumo rápido, além da diminuição de itens descartados por não conseguirem ser vendidos dentro de sua validade.</p>
+                        <CardHeader>
+                            <CardTitle>Qual a finaliade?</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p>Promover produtor de qualidade apropriados para o consumo rápido, além da diminuição de itens descartados por não conseguirem ser vendidos dentro de sua validade.</p>
+                        </CardContent>
                     </Card>
                     <Card className='card'>
-                        <h1>Há segurança?</h1>
-                        <Divider />
-                        <p>Os produtos são <b>sempre</b> vendidos antes de sua data de validade informada pelo fabricante, desta forma, não há nenhum tipo de risco para o seu consumo.</p>
+                        <CardHeader>
+                            <CardTitle>Há segurança?</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p>Os produtos são <b>sempre</b> vendidos antes de sua data de validade informada pelo fabricante, desta forma, não há nenhum tipo de risco para o seu consumo.</p>
+                        </CardContent>
                     </Card>
                 </div>
             </div>
